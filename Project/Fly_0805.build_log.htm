@@ -1,0 +1,137 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\TM4C_Program\Fly_0805\Project\Fly_0805.uvprojx
+Project File Date:  08/05/2014
+
+<h2>Output:</h2>
+Build target 'Fly_0805'
+compiling Control.c...
+..\APP\Control.c(3): error:  #20: identifier "PID" is undefined
+  PID PID_ROL,PID_PIT,PID_YAW,PID_ALT,PID_POS;
+..\APP\Control.c(4): error:  #20: identifier "PID" is undefined
+  PID PID_PID_1,PID_PID_2,PID_PID_3,PID_PID_4,PID_PID_5,PID_PID_6,PID_PID_7,PID_PID_8,PID_PID_9,PID_PID_10,PID_PID_11,PID_PID_12;
+..\APP\Control.c(6): error:  #20: identifier "int16_t" is undefined
+  int16_t getlast_roll=0,geilast_pitch=0;
+..\APP\Control.c(9): error:  #20: identifier "vs16" is undefined
+  vs16 Moto_PWM_1=0,Moto_PWM_2=0,Moto_PWM_3=0,Moto_PWM_4=0,Moto_PWM_5=0,Moto_PWM_6=0,Moto_PWM_7=0,Moto_PWM_8=0;
+..\APP\Control.c(11): error:  #20: identifier "T_float_angle" is undefined
+  void Control(T_float_angle *att_in,T_int16_xyz *gyr_in, T_RC_Data *rc_in, u8 armed)
+..\APP\Control.c(11): error:  #20: identifier "T_int16_xyz" is undefined
+  void Control(T_float_angle *att_in,T_int16_xyz *gyr_in, T_RC_Data *rc_in, u8 armed)
+..\APP\Control.c(11): error:  #20: identifier "T_RC_Data" is undefined
+  void Control(T_float_angle *att_in,T_int16_xyz *gyr_in, T_RC_Data *rc_in, u8 armed)
+..\APP\Control.c(11): error:  #20: identifier "u8" is undefined
+  void Control(T_float_angle *att_in,T_int16_xyz *gyr_in, T_RC_Data *rc_in, u8 armed)
+..\APP\Control.c(13): error:  #20: identifier "T_float_angle" is undefined
+        T_float_angle angle;
+..\APP\Control.c(14): error:  #132: expression must have pointer-to-struct-or-union type
+        angle.rol = att_in->rol - (rc_in->ROLL-1500)/20;
+..\APP\Control.c(14): error:  #132: expression must have pointer-to-struct-or-union type
+        angle.rol = att_in->rol - (rc_in->ROLL-1500)/20;
+..\APP\Control.c(15): error:  #132: expression must have pointer-to-struct-or-union type
+        angle.pit = att_in->pit + (rc_in->PITCH-1500)/20;
+..\APP\Control.c(15): error:  #132: expression must have pointer-to-struct-or-union type
+        angle.pit = att_in->pit + (rc_in->PITCH-1500)/20;
+..\APP\Control.c(24): error:  #132: expression must have pointer-to-struct-or-union type
+        PID_ROL.dout = PID_ROL.D * -gyr_in->Y;
+..\APP\Control.c(34): error:  #132: expression must have pointer-to-struct-or-union type
+        PID_PIT.dout = PID_PIT.D * gyr_in->X;
+..\APP\Control.c(36): error:  #132: expression must have pointer-to-struct-or-union type
+        if(rc_in->YAW<1480||rc_in->YAW>1520)
+..\APP\Control.c(36): error:  #132: expression must have pointer-to-struct-or-union type
+        if(rc_in->YAW<1480||rc_in->YAW>1520)
+..\APP\Control.c(37): error:  #132: expression must have pointer-to-struct-or-union type
+        {gyr_in->Z=gyr_in->Z+(rc_in->YAW-1500)*10;}
+..\APP\Control.c(37): error:  #132: expression must have pointer-to-struct-or-union type
+        {gyr_in->Z=gyr_in->Z+(rc_in->YAW-1500)*10;}
+..\APP\Control.c(37): error:  #132: expression must have pointer-to-struct-or-union type
+        {gyr_in->Z=gyr_in->Z+(rc_in->YAW-1500)*10;}
+..\APP\Control.c(38): error:  #132: expression must have pointer-to-struct-or-union type
+        yaw_p+=gyr_in->Z*0.0609756f*0.002f;// +(Rc_Get.YAW-1500)*30
+..\APP\Control.c(42): error:  #132: expression must have pointer-to-struct-or-union type
+        PID_YAW.dout = PID_YAW.D * gyr_in->Z;                              
+..\APP\Control.c(44): error:  #132: expression must have pointer-to-struct-or-union type
+        if(rc_in->THROTTLE<1200)
+..\APP\Control.c(55): error:  #132: expression must have pointer-to-struct-or-union type
+        if(rc_in->THROTTLE>1200&&armed)
+..\APP\Control.c(57): error:  #132: expression must have pointer-to-struct-or-union type
+                Moto_PWM_1 = rc_in->THROTTLE - 1000 - PID_ROL.OUT - PID_PIT.OUT + PID_YAW.OUT;
+..\APP\Control.c(58): error:  #132: expression must have pointer-to-struct-or-union type
+                Moto_PWM_2 = rc_in->THROTTLE - 1000 + PID_ROL.OUT - PID_PIT.OUT - PID_YAW.OUT;
+..\APP\Control.c(59): error:  #132: expression must have pointer-to-struct-or-union type
+                Moto_PWM_3 = rc_in->THROTTLE - 1000 + PID_ROL.OUT + PID_PIT.OUT + PID_YAW.OUT;
+..\APP\Control.c(60): error:  #132: expression must have pointer-to-struct-or-union type
+                Moto_PWM_4 = rc_in->THROTTLE - 1000 - PID_ROL.OUT + PID_PIT.OUT - PID_YAW.OUT;
+..\APP\Control.c(69): warning:  #223-D: function "Moto_PwmRflash" declared implicitly
+        Moto_PwmRflash(Moto_PWM_1,Moto_PWM_2,Moto_PWM_3,Moto_PWM_4);
+..\APP\Control.c: 1 warning, 28 errors
+"..\Output\Fly_0805.axf" - 28 Error(s), 1 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.4.1.0.pack
+                ARM::CMSIS:CORE:3.30.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 3.30.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.TM4C_DFP.1.0.0.pack
+                Keil::Device:Startup:1.0.0
+                Texas Instruments Tiva C Series Device Support and Examples
+   * Component: Startup Version: 1.0.0
+
+<h2>Collection of Component include folders:</h2>
+  D:\TM4C_Program\Fly_0805\Project\RTE
+  E:\Program files\keil-arm5.1\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include
+  E:\Program files\keil-arm5.1\ARM\PACK\Keil\TM4C_DFP\1.0.0\Device\Include\TM4C123
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:3.30.0
+      Source file:   CMSIS\UserCodeTemplates\ARM\ITM_Retarget.c
+
+   * Component: Keil::Device:Startup:1.0.0
+      Include file:  Device\Include\TM4C123\TM4C123.h
+      Source file:   Device\Source\ARM\startup_TM4C123.s
+      Source file:   Device\Source\system_TM4C123.c
+Target not created
+</pre>
+</body>
+</html>
+ /* set value */
+RTE\Device\TM4C123GH6PGE\system_TM4C123.c: 8 warnings, 0 errors
+"..\Output\Fly_0805.axf" - 29 Error(s), 9 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.4.1.0.pack
+                ARM::CMSIS:CORE:3.30.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 3.30.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.TM4C_DFP.1.0.0.pack
+                Keil::Device:Startup:1.0.0
+                Texas Instruments Tiva C Series Device Support and Examples
+   * Component: Startup Version: 1.0.0
+
+<h2>Collection of Component include folders:</h2>
+  D:\TM4C_Program\Fly_0805\Project\RTE
+  E:\Program files\keil-arm5.1\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include
+  E:\Program files\keil-arm5.1\ARM\PACK\Keil\TM4C_DFP\1.0.0\Device\Include\TM4C123
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:3.30.0
+      Source file:   CMSIS\UserCodeTemplates\ARM\ITM_Retarget.c
+
+   * Component: Keil::Device:Startup:1.0.0
+      Include file:  Device\Include\TM4C123\TM4C123.h
+      Source file:   Device\Source\ARM\startup_TM4C123.s
+      Source file:   Device\Source\system_TM4C123.c
+Target not created
